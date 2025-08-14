@@ -1,4 +1,7 @@
 
+# binary folders
+bin/
+
 # binary files
 *.o
 *.obj
