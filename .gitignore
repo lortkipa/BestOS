@@ -1,0 +1,10 @@
+
+# binary files
+*.o
+*.obj
+*.elf
+*.efi
+*.exe
+*.bin
+*.img
+*.iso
