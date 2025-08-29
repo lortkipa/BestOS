@@ -24,9 +24,9 @@ section .text
         ; store UEFI data
         mov [efist], rdx
 
-        ; setup 80x25 text mode (maches BIOS default)
+        ; setup 80x25 text mode as default
         mov rax, EFI_80X25
-        call consetm
+        eficall consetm
 
         ; call bootloader main function
         eficall main

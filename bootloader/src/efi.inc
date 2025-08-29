@@ -1,16 +1,17 @@
 %ifndef EFI_INC
 %define EFI_INC
 
-%macro efistartf 0
+; %1 - function to call
+%macro eficall 1
     ; save non-volatile registers that Microsoft ABI does't
     push r10
     push r11
 
     ; allocate for shadow space
     sub rsp, 16
-%endmacro
 
-%macro efiendf 0
+    call %1
+
     ; free shadow space
     add rsp, 16
 
@@ -19,13 +20,8 @@
     pop r10
 %endmacro
 
-; %1 - function to call
-%macro eficall 1
-    ; call function with aligned stack
-    efistartf
-    call %1
-    efiendf
-%endmacro
+; error codes
+%define EFI_SUCCESS 0
 
 ; text mode codes
 %define EFI_80X25 0
@@ -175,6 +171,12 @@ struc SIMPLE_TEXT_OUTPUT_MODE
     .ATTRIBUTE:     resd 1
     .CURSOR_COLUMN: resd 1
     .CURSOR_ROW:    resd 1
+endstruc
+
+struc EFI_SIMPLE_TEXT_INPUT_PROTOCOL
+    .RESET:           resq 1
+    .READ_KEY_STROKE: resq 1
+    .WAIT_FOR_KEY:    resq 1
 endstruc
 
 %endif
