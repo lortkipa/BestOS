@@ -1,5 +1,5 @@
 
-%include 'firmware/efi.inc'
+%include 'efi.inc'
 
 extern main
 extern consetm
@@ -24,7 +24,7 @@ section .text
         ; store UEFI data
         mov [efist], rdx
 
-        ; setup 80x25 text mode to mach BIOS
+        ; setup 80x25 text mode (maches BIOS default)
         mov rax, EFI_80X25
         call consetm
 

@@ -1,5 +1,5 @@
-%ifndef FIRMWARE_EFI_INC
-%define FIRMWARE_EFI_INC
+%ifndef EFI_INC
+%define EFI_INC
 
 %macro efistartf 0
     ; save non-volatile registers that Microsoft ABI does't

@@ -1,7 +1,7 @@
 %ifndef IO_CONSOLE_INC
 %define IO_CONSOLE_INC
 
-%include 'firmware/efi.inc'
+%include 'efi.inc'
 
 ; console special characters
 %ifdef UEFI
