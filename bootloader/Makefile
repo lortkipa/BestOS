@@ -1,7 +1,8 @@
 
 # project settings
 name := BestLoader
-entry := main
+entry := efimain
+firmware := UEFI # UEFI/BIOS
 
 # directories
 srcdir := src
@@ -14,7 +15,7 @@ ofiles := $(patsubst $(srcdir)/%.asm, $(odir)/%.o, $(asfiles))
 
 # assembly
 as := nasm
-asflags := -f win64 -I$(srcdir)
+asflags := -f win64 -I$(srcdir) -D$(firmware)
 
 # linker
 ld := lld-link
@@ -26,7 +27,7 @@ vmflags := -bios $(bindir)/OVMF.fd -drive format=raw,file=$(bindir)/$(name).img
 
 # run OS using virtual machine
 .PHONY: run
-run: ovmf img
+run: img ovmf
 	@echo '   ==> Running $(vm): $(bindir)/$(name).img'
 	@$(vm) $(vmflags)
 

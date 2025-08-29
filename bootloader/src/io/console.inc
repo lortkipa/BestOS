@@ -1,0 +1,32 @@
+%ifndef IO_CONSOLE_INC
+%define IO_CONSOLE_INC
+
+%include 'firmware/efi.inc'
+
+; console special characters
+%ifdef UEFI
+    %define CONSOLE_CHAR_LF EFI_LF
+    %define CONSOLE_CHAR_CR EFI_CR
+%endif
+
+; console colors
+%ifdef UEFI
+    %define CONSOLE_COLOR_BLACK    EFI_BLACK
+    %define CONSOLE_COLOR_BLUE     EFI_BLUE
+    %define CONSOLE_COLOR_GREEN    EFI_GREEN
+    %define CONSOLE_COLOR_CYAN     EFI_CYAN
+    %define CONSOLE_COLOR_RED      EFI_RED
+    %define CONSOLE_COLOR_MAGENTA  EFI_MAGENTA
+    %define CONSOLE_COLOR_BROWN    EFI_BROWN
+    %define CONSOLE_COLOR_LGRAY    EFI_LIGHTGRAY
+    %define CONSOLE_COLOR_DGRAY    EFI_DARKGRAY
+    %define CONSOLE_COLOR_LBLUE    EFI_LIGHTBLUE
+    %define CONSOLE_COLOR_LGREEN   EFI_LIGHTGREEN
+    %define CONSOLE_COLOR_LCYAN    EFI_LIGHTCYAN
+    %define CONSOLE_COLOR_LRED     EFI_LIGHTRED
+    %define CONSOLE_COLOR_LMAGENTA EFI_LIGHTMAGENTA
+    %define CONSOLE_COLOR_YELLOW   EFI_YELLOW
+    %define CONSOLE_COLOR_WHITE    EFI_WHITE
+%endif
+
+%endif
