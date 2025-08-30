@@ -1,5 +1,5 @@
 
-%include 'efi.inc'
+%include 'firmware/efi.inc'
 
 extern main
 extern consetm

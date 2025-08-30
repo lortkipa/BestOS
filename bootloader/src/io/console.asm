@@ -1,5 +1,5 @@
 
-%include 'efi.inc'
+%include 'io/console.inc'
 
 extern efist
 

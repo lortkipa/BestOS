@@ -1,5 +1,5 @@
 
-%include 'efi.inc'
+%include 'io/keyboard.inc'
 
 extern efist
 

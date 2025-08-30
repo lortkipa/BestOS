@@ -1,7 +1,7 @@
 %ifndef IO_KEYBOARD_INC
 %define IO_KEYBOARD_INC
 
-%include 'efi.inc'
+%include 'firmware/efi.inc'
 
 ; special keys
 %define KB_KEY_UARROW EFI_UPARROW
