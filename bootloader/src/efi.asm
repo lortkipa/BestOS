@@ -25,8 +25,8 @@ section .text
         mov [efist], rdx
 
         ; setup 80x25 text mode as default
-        mov rax, EFI_80X25
-        eficall consetm
+        ; mov rax, EFI_80X25
+        ; eficall consetm
 
         ; call bootloader main function
         eficall main

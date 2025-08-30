@@ -3,6 +3,7 @@
 
 %include 'efi.inc'
 
+; special keys
 %define KB_KEY_UARROW EFI_UPARROW
 %define KB_KEY_DARROW EFI_DOWNARROW
 %define KB_KEY_RARROW EFI_RIGHTARROW
@@ -21,5 +22,8 @@
 %define KB_KEY_F9     EFI_F9
 %define KB_KEY_F10    EFI_F10
 %define KB_KEY_ESC    EFI_ESC
+
+; special chars
+%define KB_CHAR_ENTER EFI_CR
 
 %endif

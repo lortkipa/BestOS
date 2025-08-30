@@ -23,9 +23,6 @@
 ; error codes
 %define EFI_SUCCESS 0
 
-; text mode codes
-%define EFI_80X25 0
-
 ; console colors
 %define EFI_BLACK        0x00
 %define EFI_BLUE         0x01
