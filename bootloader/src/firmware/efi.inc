@@ -66,6 +66,12 @@
 %define EFI_F10        0x14
 %define EFI_ESC        0x17
 
+; reset types
+%define EFI_RESET_COLD              0
+%define EFI_RESET_WARM              1
+%define EFI_RESET_SHUTDOWN          2
+%define EFI_RESET_PLATFORM_SPECIFIC 3
+
 struc EFI_GUID
     .DATA1: resd 1
     .DATA2: resw 1
