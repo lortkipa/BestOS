@@ -1,5 +1,6 @@
 
 %include 'io/console.inc'
+%include 'io/keyboard.inc'
 
 extern consetc
 extern conclear
@@ -12,7 +13,7 @@ default rel
 
 section .data
 
-    welcome dw __utf16__('Welcome To BestOS'), CONSOLE_CHAR_LF, CONSOLE_CHAR_CR, 0
+    welcome: dw __utf16__('Welcome To BestOS'), CONSOLE_CHAR_LF, CONSOLE_CHAR_CR, 0
 
 section .text
 
@@ -24,8 +25,14 @@ section .text
         eficall consetc
         eficall conclear
 
-        ; greet user
+        ; wait until key 'a' is pressed
+        .wait:
         eficall kbwait
+        eficall kbread
+        cmp ecx, KB_KEY_ESC
+        jne .wait
+
+        ; greet user
         mov rax, welcome
         eficall conout
 

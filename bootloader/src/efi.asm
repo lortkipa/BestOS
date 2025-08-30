@@ -10,7 +10,7 @@ default rel
 section .bss
     
     global efist
-    efist resq 1
+    efist: resq 1
 
 section .text
 

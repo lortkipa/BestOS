@@ -49,6 +49,26 @@
 %define EFI_LF 0x000A
 %define EFI_CR 0x000D
 
+; special key scancodes
+%define EFI_UPARROW    0x01
+%define EFI_DOWNARROW  0x02
+%define EFI_RIGHTARROW 0x03
+%define EFI_LEFTARROW  0x04
+%define EFI_DELETE     0x08
+%define EFI_PAGEUP     0x09
+%define EFI_PAGEDOWN   0x0A
+%define EFI_F1         0x0B
+%define EFI_F2         0x0C
+%define EFI_F3         0x0D
+%define EFI_F4         0x0E
+%define EFI_F5         0x0F
+%define EFI_F6         0x10
+%define EFI_F7         0x11
+%define EFI_F8         0x12
+%define EFI_F9         0x13
+%define EFI_F10        0x14
+%define EFI_ESC        0x17
+
 struc EFI_GUID
     .DATA1: resd 1
     .DATA2: resw 1
@@ -171,12 +191,20 @@ struc SIMPLE_TEXT_OUTPUT_MODE
     .ATTRIBUTE:     resd 1
     .CURSOR_COLUMN: resd 1
     .CURSOR_ROW:    resd 1
+    .SIZEB:
 endstruc
 
 struc EFI_SIMPLE_TEXT_INPUT_PROTOCOL
     .RESET:           resq 1
     .READ_KEY_STROKE: resq 1
     .WAIT_FOR_KEY:    resq 1
+    .SIZEB:
+endstruc
+
+struc EFI_INPUT_KEY
+    .SCAN_CODE    resw 1
+    .UNICODE_CHAR resw 1
+    .SIZEB:
 endstruc
 
 %endif
