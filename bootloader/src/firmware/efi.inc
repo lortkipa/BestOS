@@ -188,7 +188,7 @@ struc EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL
     .SIZEB:
 endstruc
 
-struc SIMPLE_TEXT_OUTPUT_MODE
+struc EFI_SIMPLE_TEXT_OUTPUT_MODE
     .MAX_MODE:      resd 1
     .MODE:          resd 1
     .ATTRIBUTE:     resd 1

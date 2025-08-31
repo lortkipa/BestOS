@@ -5,6 +5,7 @@
 
 extern consetc
 extern consetp
+extern congetp
 extern conclear
 extern conout
 extern kbread
@@ -64,9 +65,7 @@ section .text
             eficall consetc
 
             ; start drawing with padding from left wall
-            movzx eax, r10b
-            inc eax
-            mov ecx, 25
+            eficall congetp
             eficall consetp
 
             ; show current option

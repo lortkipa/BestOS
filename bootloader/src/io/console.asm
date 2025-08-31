@@ -46,8 +46,8 @@ section .text
     global consetp
     consetp:
         ; put position into right registers
-        mov edx, ecx
-        mov r8d, eax
+        mov edx, eax
+        mov r8d, ecx
 
         ; load UEFI protocol
         mov rcx, [efist]
@@ -55,6 +55,21 @@ section .text
     
         ; call UEFI function
         eficall [rcx + EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.SET_CURSOR_POSITION]
+
+        ret
+
+    ; OUT eax - x pos
+    ; OUT ecx - y pos
+    global congetp
+    congetp:
+        ; get EFI_SIMPLE_TEXT_OUTPUT_MODE structure
+        mov rdx, [efist]
+        mov rdx, [rdx + EFI_SYSTEM_TABLE.CONSOLE_OUT_PROTOCOL]
+        mov rdx, [rdx + EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.MODE]
+
+        ; output position
+        mov eax, [rdx + EFI_SIMPLE_TEXT_OUTPUT_MODE.CURSOR_COLUMN]
+        mov ecx, [rdx + EFI_SIMPLE_TEXT_OUTPUT_MODE.CURSOR_ROW]
 
         ret
 
