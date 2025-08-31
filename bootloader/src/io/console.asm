@@ -41,6 +41,23 @@ section .text
 
         ret
 
+    ; IN eax - x pos
+    ; IN ecx - y pos
+    global consetp
+    consetp:
+        ; put position into right registers
+        mov edx, ecx
+        mov r8d, eax
+
+        ; load UEFI protocol
+        mov rcx, [efist]
+        mov rcx, [rcx + EFI_SYSTEM_TABLE.CONSOLE_OUT_PROTOCOL]
+    
+        ; call UEFI function
+        eficall [rcx + EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL.SET_CURSOR_POSITION]
+
+        ret
+
     global conclear
     conclear:
         ; load UEFI protocol

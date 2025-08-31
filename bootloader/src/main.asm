@@ -4,6 +4,7 @@
 %include 'system/reset.inc'
 
 extern consetc
+extern consetp
 extern conclear
 extern conout
 extern kbread
@@ -46,7 +47,7 @@ section .text
         eficall conclear
 
         ; setup options counter
-        xor r10d, r10d
+        xor r10b, r10b
 
         .showopts:
             ; setup current option colors depending on if its selected or not
@@ -62,16 +63,22 @@ section .text
             .setc:
             eficall consetc
 
+            ; start drawing with padding from left wall
+            movzx eax, r10b
+            inc eax
+            mov ecx, 25
+            eficall consetp
+
             ; show current option
             mov rax, 8
-            mul r10d
+            mul r10b
             mov rcx, opts
             add rax, rcx
             mov rax, [rax]
             eficall conout
 
             ; incriment counter and if it reached option count, stop the loop
-            inc r10d
+            inc r10b
             cmp r10b, [optc]
             jne .showopts
 
