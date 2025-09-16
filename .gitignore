@@ -1,0 +1,10 @@
+
+# binary extensions
+*.o
+*.obj
+*.fd
+*.exe
+*.elf
+*.efi
+*.img
+*.iso
