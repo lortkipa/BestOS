@@ -1,2 +1,10 @@
-# BestOS
-fast, free and open-source operating system for x86_64 architecture
+## About the project
+BestOS is fast, free and open-source operating system for x86_64 architecture.  
+It is written in assembly programing language for various reasons, but mainly for it's fast build time and possible runtime performance.  
+
+## Documentation
+### Calling conventions
+* 16 byte stack aligment
+* First 10 intiger/pointer argument and return value registers: RAX, RCX, RDX, RBX, RSI, RDI, R8, R9, R10, R11
+* volatile registers: RAX, RCX, RDX, RBX, RSI, RDI, R8, R9, R10, R11
+* nonvolatile registers: RSP, RBP, R12, R13, R14, R15
